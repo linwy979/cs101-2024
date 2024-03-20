@@ -1,8 +1,9 @@
 #include <stdio.h>
 
 int main() {
+    char filename[] = "main2.c"; // 文件名稱
     // 打開自己的源文件
-    FILE *fp_input = fopen(__FILE__, "r");
+    FILE *fp_input = fopen(filename, "r");
     if (fp_input == NULL) {
         printf("無法打開文件\n");
         return 1;
