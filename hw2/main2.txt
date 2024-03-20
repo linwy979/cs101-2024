@@ -1,0 +1,39 @@
+/******************************************************************************
+
+Welcome to GDB Online.
+GDB online is an online compiler and debugger tool for C, C++, Python, Java, PHP, Ruby, Perl,
+C#, OCaml, VB, Swift, Pascal, Fortran, Haskell, Objective-C, Assembly, HTML, CSS, JS, SQLite, Prolog.
+Code, Compile, Run and Debug online from anywhere in world.
+
+*******************************************************************************/
+#include <stdio.h>
+
+int main() {
+    // 打開自己的源文件
+    FILE *fp_input = fopen(__FILE__, "r");
+    if (fp_input == NULL) {
+        printf("無法打開文件\n");
+        return 1;
+    }
+
+    // 打開用於輸出的文件
+    FILE *fp_output = fopen("main2.txt", "w");
+    if (fp_output == NULL) {
+        printf("無法打開文件\n");
+        fclose(fp_input);
+        return 1;
+    }
+
+    // 逐行讀取並輸出源代碼
+    char line[1000];
+    while (fgets(line, sizeof(line), fp_input) != NULL) {
+        printf("%s", line);
+        fprintf(fp_output, "%s", line); // 將源代碼寫入到文件中
+    }
+
+    // 關閉文件
+    fclose(fp_input);
+    fclose(fp_output);
+
+    return 0;
+}
