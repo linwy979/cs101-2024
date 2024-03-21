@@ -12,7 +12,7 @@ Code, Compile, Run and Debug online from anywhere in world.
 #include <unistd.h> // 用於 sleep 函數
 
 #define LOTTO_NUMBERS 7
-#define MAX_NUMBER 49
+#define MAX_NUMBER 69
 
 void generateLottoNumbers(int lottoNumbers[], int numSets);
 
